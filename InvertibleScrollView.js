@@ -26,7 +26,7 @@ let InvertibleScrollView = React.createClass({
 
   getDefaultProps(): DefaultProps {
     return {
-      renderScrollComponent: props => <ScrollView {...props} />,
+      renderScrollComponent: props => <ScrollView setVerticalScrollbarPositionOnLeftSide={true} {...props} />,
     };
   },
 
