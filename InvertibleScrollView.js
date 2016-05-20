@@ -1,12 +1,12 @@
 'use strict';
 
-let React = require('react-native');
-let {
-  PropTypes,
+import React, { PropTypes } from 'react';
+import {
   ScrollView,
   StyleSheet,
   View,
-} = React;
+} from 'react-native';
+
 let ScrollableMixin = require('react-native-scrollable-mixin');
 
 let cloneReferencedElement = require('react-native-clone-referenced-element');
