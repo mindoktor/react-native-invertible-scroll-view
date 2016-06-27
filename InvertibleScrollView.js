@@ -1,15 +1,16 @@
 'use strict';
 
-import React, { PropTypes } from 'react';
+import React, {
+  PropTypes,
+} from 'react';
 import {
   ScrollView,
   StyleSheet,
   View,
 } from 'react-native';
+import ScrollableMixin from 'react-native-scrollable-mixin';
 
-let ScrollableMixin = require('react-native-scrollable-mixin');
-
-let cloneReferencedElement = require('react-native-clone-referenced-element');
+import cloneReferencedElement from 'react-clone-referenced-element';
 
 type DefaultProps = {
   renderScrollComponent: (props: Object) => ReactElement;
