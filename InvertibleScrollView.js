@@ -32,11 +32,16 @@ let InvertibleScrollView = React.createClass({
   },
 
   getScrollResponder(): ReactComponent {
-    return this._scrollComponent.getScrollResponder();
+    if (this._scrollComponent) {
+      return this._scrollComponent.getScrollResponder();
+    }
+    return null;
   },
 
   setNativeProps(props: Object) {
-    this._scrollComponent.setNativeProps(props);
+    if (this._scrollComponent) {
+      this._scrollComponent.setNativeProps(props);
+    }
   },
 
   render() {
