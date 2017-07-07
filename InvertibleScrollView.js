@@ -74,19 +74,30 @@ let InvertibleScrollView = React.createClass({
   },
 });
 
-// fix for bug in htc honour which doesnt support negative scaling (gl culling issue?)
-// note, this will place scrollbar to the left side of the screen and currently it's not possible
-// to set scrollbar alignment in react-native (without forking)
-const verticalInvertTransform = Platform.OS === 'android' ? [{ rotateZ:  '180 deg'}] : [{ scaleY:  -1}]
+// https://github.com/expo/react-native-invertible-scroll-view/pull/46
+const verticalTransform = [
+  { scaleY: -1 },
+];
+
+const horizontalTransform = [
+  { scaleX: -1 },
+];
+
+if (Platform.OS === 'android') {
+  verticalTransform.push({
+    perspective: 1280,
+  });
+  horizontalTransform.push({
+    perspective: 1280,
+  })
+}
 
 let styles = StyleSheet.create({
   verticallyInverted: {
-    transform: verticalInvertTransform,
+    transform: verticalTransform
   },
   horizontallyInverted: {
-    transform: [
-      { scaleX: -1 },
-    ],
+    transform: horizontalTransform,
   },
 });
 
